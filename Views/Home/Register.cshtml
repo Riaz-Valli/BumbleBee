@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The BumbleBee Foundation - Register</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+
+        header {
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 2.5em;
+            }
+
+        nav {
+            width: 100%;
+            margin: 0;
+            background-color: #fff;
+        }
+
+            nav div {
+                display: flex;
+                justify-content: center;
+                padding: 15px 0;
+            }
+
+            nav a {
+                padding: 10px 25px;
+                text-decoration: none;
+                font-size: 1.1em;
+                border-radius: 25px;
+                transition: background-color 0.3s ease;
+                color: #000;
+            }
+
+                nav a:hover {
+                    background-color: #eee;
+                }
+
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 450px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+            color: #fff;
+        }
+
+            .hero h2 {
+                font-size: 3.5em;
+                margin: 0;
+            }
+
+            .hero p {
+                font-size: 1.5em;
+                margin-top: 10px;
+            }
+
+            .hero button {
+                padding: 15px 30px;
+                border: none;
+                border-radius: 25px;
+                background-color: #000;
+                color: #fff;
+                font-size: 1.2em;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-top: 20px;
+            }
+
+                .hero button:hover {
+                    background-color: #333;
+                }
+
+        .content {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ddd;
+                box-sizing: border-box;
+            }
+
+            .form-group button {
+                padding: 15px 30px;
+                border: none;
+                border-radius: 25px;
+                background-color: #000;
+                color: #fff;
+                font-size: 1.2em;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-top: 20px;
+                display: inline-block;
+            }
+
+                .form-group button:hover {
+                    background-color: #333;
+                }
+
+        .hidden {
+            display: none;
+        }
+
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1em;
+        }
+
+            .login-link a {
+                color: #000;
+                text-decoration: underline;
+                transition: color 0.3s ease;
+            }
+
+                .login-link a:hover {
+                    color: #333;
+                }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function toggleFields() {
+            var userType = document.querySelector('input[name="userType"]:checked').value;
+            var donorFields = document.getElementById('donorFields');
+            var companyFields = document.getElementById('companyFields');
+
+            if (userType === 'donor') {
+                donorFields.classList.remove('hidden');
+                companyFields.classList.add('hidden');
+            } else {
+                donorFields.classList.add('hidden');
+                companyFields.classList.remove('hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>The BumbleBee Foundation</h1>
+        <p>Changing the world, one step at a time</p>
+    </header>
+
+    <nav>
+        <div>
+            <a href="~/">Home</a>
+            <a href="~/Home/About">About Us</a>
+            <a href="~/Home/Projects">Projects</a>
+            <a href="~/Home/Donations">Donations</a>
+            <a href="~/Home/GetInvolved">Get Involved</a>
+            <a href="~/Home/Contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="form-container">
+            <h2>Register</h2>
+            <form>
+                <div class="form-group">
+                    <label for="userType">I am a:</label>
+                    <div>
+                        <input type="radio" id="donor" name="userType" value="donor" onclick="toggleFields()">
+                        <label for="donor">Donor</label>
+                        <input type="radio" id="company" name="userType" value="company" onclick="toggleFields()">
+                        <label for="company">Company</label>
+                    </div>
+                </div>
+
+                <div id="donorFields" class="hidden">
+                    <div class="form-group">
+                        <label for="donorName">Full Name:</label>
+                        <input type="text" id="donorName" name="donorName">
+                    </div>
+                    <div class="form-group">
+                        <label for="donorEmail">Email:</label>
+                        <input type="email" id="donorEmail" name="donorEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="donorPhone">Phone Number:</label>
+                        <input type="tel" id="donorPhone" name="donorPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="donorAddress">Address:</label>
+                        <input type="text" id="donorAddress" name="donorAddress">
+                    </div>
+                </div>
+
+                <div id="companyFields" class="hidden">
+                    <div class="form-group">
+                        <label for="companyName">Company Name:</label>
+                        <input type="text" id="companyName" name="companyName">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyEmail">Company Email:</label>
+                        <input type="email" id="companyEmail" name="companyEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyPhone">Company Phone Number:</label>
+                        <input type="tel" id="companyPhone" name="companyPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyAddress">Company Address:</label>
+                        <input type="text" id="companyAddress" name="companyAddress">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyWebsite">Website:</label>
+                        <input type="url" id="companyWebsite" name="companyWebsite">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyDocuments">Upload Documents:</label>
+                        <input type="file" id="companyDocuments" name="companyDocuments" multiple>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+            <div class="login-link">
+                <p>Already have an account? <a href="/Home/Login">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
