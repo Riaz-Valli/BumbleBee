@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The BumbleBee Foundation - Donor Dashboard</title>
+    <title>The BumbleBee Foundation - Company Request Dashboard</title>
     <style>
         body {
             margin: 0;
@@ -107,7 +107,8 @@
                 }
 
                 .content .section input,
-                .content .section select {
+                .content .section select,
+                .content .section textarea {
                     width: calc(100% - 24px);
                     padding: 10px;
                     margin-bottom: 10px;
@@ -140,55 +141,46 @@
             font-size: 2em;
             margin-bottom: 20px;
         }
-
     </style>
 </head>
 <body>
 
-@*     <header>
+    <header>
         <h1>The BumbleBee Foundation</h1>
-        <p>Donor Dashboard</p>
-    </header> *@
+        <p>Company Request Dashboard</p>
+    </header>
 
     <div class="sidebar">
         <h2>Navigation</h2>
-        <a href="#donation-history" onclick="showSection('donation-history')">Donation History</a>
-        <a href="#account-settings" onclick="showSection('account-settings')">Account Settings</a>
-        <a href="#recurring-donations" onclick="showSection('recurring-donations')">Recurring Donations</a>
-        <a href="#donor-info" onclick="showSection('donor-info')">Donor Information</a>
+        <a href="#request-funds" onclick="showSection('request-funds')">Request Funds</a>
+        <a href="#company-info" onclick="showSection('company-info')">Company Information</a>
     </div>
 
     <div class="main-content">
         <div id="content" class="content">
-            <div id="donation-history" class="section">
-                <h2 class="section-title">Donation History</h2>
-                <p>Your donation history will be displayed here.</p>
-            </div>
-
-            <div id="account-settings" class="section" style="display: none;">
-                <h2 class="section-title">Account Settings</h2>
-                <p>Your account settings will be displayed here.</p>
-            </div>
-
-            <div id="recurring-donations" class="section" style="display: none;">
-                <h2 class="section-title">Recurring Donations</h2>
-                <p>Your recurring donation details will be displayed here.</p>
-            </div>
-
-            <div id="donor-info" class="section" style="display: none;">
-                <h2 class="section-title">Donor Information</h2>
+            <div id="request-funds" class="section">
+                <h2 class="section-title">Request Funds</h2>
                 <form>
-                    <input type="text" id="full-name" placeholder="Full Name">
-                    <input type="email" id="email" placeholder="Email Address">
-                    <input type="text" id="phone" placeholder="Phone Number">
-                    <input type="text" id="address" placeholder="Address">
-                    <input type="text" id="city" placeholder="City">
-                    <input type="text" id="state" placeholder="State">
-                    <input type="text" id="zip" placeholder="ZIP Code">
-                    <button type="button" onclick="saveDonorInfo()">Save</button>
+                    <input type="text" id="company-name" placeholder="Company Name">
+                    <input type="email" id="contact-email" placeholder="Contact Email Address">
+                    <input type="text" id="contact-phone" placeholder="Contact Phone Number">
+                    <input type="text" id="request-amount" placeholder="Requested Amount">
+                    <textarea id="request-details" rows="5" placeholder="Details of the Funding Request"></textarea>
+                    <button type="button" onclick="submitRequest()">Submit Request</button>
                 </form>
             </div>
 
+            <div id="company-info" class="section" style="display: none;">
+                <h2 class="section-title">Company Information</h2>
+                <form>
+                    <input type="text" id="company-name-info" placeholder="Company Name">
+                    <input type="text" id="contact-person" placeholder="Contact Person">
+                    <input type="email" id="company-email" placeholder="Company Email Address">
+                    <input type="text" id="company-phone" placeholder="Company Phone Number">
+                    <textarea id="company-address" rows="3" placeholder="Company Address"></textarea>
+                    <textarea id="company-description" rows="5" placeholder="Company Description"></textarea>
+                    <button type="button" onclick="saveCompanyInfo()">Save Information</button>
+                </form>
             </div>
         </div>
     </div>
@@ -205,20 +197,16 @@
             });
         }
 
-        function saveDonorInfo() {
-            alert('Donor information saved successfully!');
+        function submitRequest() {
+            alert('Funding request submitted successfully!');
         }
 
-        function addEvent() {
-            alert('Event added successfully!');
-        }
-
-        function issueCertificate() {
-            alert('Certificate issued successfully!');
+        function saveCompanyInfo() {
+            alert('Company information saved successfully!');
         }
 
         window.onload = function () {
-            showSection('donation-history');
+            showSection('request-funds');
         }
     </script>
 

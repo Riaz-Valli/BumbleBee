@@ -32,17 +32,17 @@ namespace BumbleBee.Controllers
             return View();
         }
 
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        public IActionResult Login()
-        {
-            return View();
-        }
-
         public IActionResult DonorDashboard()
+        {
+            return View();
+        }
+
+        public IActionResult AdminDashboard()
+        {
+            return View();
+        }
+
+        public IActionResult CompanyDashboard()
         {
             return View();
         }
