@@ -145,13 +145,13 @@
 </head>
 <body>
 
-    <header>
+@*     <header>
         <h1>The BumbleBee Foundation</h1>
         <p>Company Request Dashboard</p>
-    </header>
+    </header> *@
 
     <div class="sidebar">
-        <h2>Navigation</h2>
+        <h2>Compnay DashBoard</h2>
         <a href="#request-funds" onclick="showSection('request-funds')">Request Funds</a>
         <a href="#company-info" onclick="showSection('company-info')">Company Information</a>
     </div>
@@ -160,12 +160,16 @@
         <div id="content" class="content">
             <div id="request-funds" class="section">
                 <h2 class="section-title">Request Funds</h2>
-                <form>
-                    <input type="text" id="company-name" placeholder="Company Name">
-                    <input type="email" id="contact-email" placeholder="Contact Email Address">
-                    <input type="text" id="contact-phone" placeholder="Contact Phone Number">
-                    <input type="text" id="request-amount" placeholder="Requested Amount">
-                    <textarea id="request-details" rows="5" placeholder="Details of the Funding Request"></textarea>
+                <form id="fund-request-form">
+                    <input type="text" id="company-name" placeholder="Company Name" required>
+                    <input type="email" id="contact-email" placeholder="Contact Email Address" required>
+                    <input type="text" id="contact-phone" placeholder="Contact Phone Number" required>
+                    <input type="text" id="request-amount" placeholder="Requested Amount" required>
+                    <textarea id="request-details" rows="5" placeholder="Details of the Funding Request" required></textarea>
+
+                    <label for="funding-doc">Attach Supporting Documents:</label>
+                    <input type="file" id="funding-doc" required accept=".pdf,.doc,.docx,.xls,.xlsx">
+
                     <button type="button" onclick="submitRequest()">Submit Request</button>
                 </form>
             </div>
@@ -198,7 +202,13 @@
         }
 
         function submitRequest() {
-            alert('Funding request submitted successfully!');
+            const fileInput = document.getElementById('funding-doc');
+
+            if (fileInput.files.length === 0) {
+                alert('Please attach a supporting document before submitting the request.');
+                return;
+            }
+            alert('Funding request submitted successfully with document!');
         }
 
         function saveCompanyInfo() {

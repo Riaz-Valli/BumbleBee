@@ -66,6 +66,7 @@
 
         .form-group {
             margin-bottom: 20px;
+            text-align: center; 
         }
 
             .form-group label {
@@ -143,7 +144,7 @@
 
             if (type === 'donor') {
                 header.textContent = 'Login as Donor';
-                nameField.innerHTML = `<label for="donor-name">Donor Name:</label><input type="text" id="donor-name" name="donor-name">`;
+                nameField.innerHTML = `<label for="email">Email:</label><input type="text" id="email" name="email">`;
             } else {
                 header.textContent = 'Login as Company';
                 nameField.innerHTML = `<label for="company-name">Company Name:</label><input type="text" id="company-name" name="company-name">`;
@@ -184,12 +185,8 @@
                 <form>
                     <input type="hidden" id="user-type" name="user-type">
                     <div id="name-field" class="form-group">
-                        <!-- The name field will be dynamically inserted here -->
                     </div>
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username">
-                    </div>
+
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password">
@@ -202,9 +199,9 @@
         </div>
     </div>
 
-    <footer>
+ @*    <footer>
         <p>&copy; 2024 The BumbleBee Foundation</p>
-    </footer>
+    </footer> *@
 
 </body>
 </html>

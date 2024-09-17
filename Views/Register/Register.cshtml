@@ -104,12 +104,14 @@
 
         .form-group {
             margin-bottom: 20px;
+            text-align: center; /* Center the button */
         }
 
             .form-group label {
                 display: block;
                 margin-bottom: 5px;
                 font-weight: bold;
+                text-align: left;
             }
 
             .form-group input {
@@ -130,16 +132,11 @@
                 cursor: pointer;
                 transition: background-color 0.3s ease;
                 margin-top: 20px;
-                display: inline-block;
             }
 
                 .form-group button:hover {
                     background-color: #333;
                 }
-
-        .hidden {
-            display: none;
-        }
 
         .login-link {
             margin-top: 20px;
@@ -164,21 +161,6 @@
             margin-top: 20px;
         }
     </style>
-    <script>
-        function toggleFields() {
-            var userType = document.querySelector('input[name="userType"]:checked').value;
-            var donorFields = document.getElementById('donorFields');
-            var companyFields = document.getElementById('companyFields');
-
-            if (userType === 'donor') {
-                donorFields.classList.remove('hidden');
-                companyFields.classList.add('hidden');
-            } else {
-                donorFields.classList.add('hidden');
-                companyFields.classList.remove('hidden');
-            }
-        }
-    </script>
 </head>
 <body>
 
@@ -203,61 +185,13 @@
             <h2>Register</h2>
             <form>
                 <div class="form-group">
-                    <label for="userType">I am a:</label>
-                    <div>
-                        <input type="radio" id="donor" name="userType" value="donor" onclick="toggleFields()">
-                        <label for="donor">Donor</label>
-                        <input type="radio" id="company" name="userType" value="company" onclick="toggleFields()">
-                        <label for="company">Company</label>
-                    </div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
                 </div>
-
-                <div id="donorFields" class="hidden">
-                    <div class="form-group">
-                        <label for="donorName">Full Name:</label>
-                        <input type="text" id="donorName" name="donorName">
-                    </div>
-                    <div class="form-group">
-                        <label for="donorEmail">Email:</label>
-                        <input type="email" id="donorEmail" name="donorEmail">
-                    </div>
-                    <div class="form-group">
-                        <label for="donorPhone">Phone Number:</label>
-                        <input type="tel" id="donorPhone" name="donorPhone">
-                    </div>
-                    <div class="form-group">
-                        <label for="donorAddress">Address:</label>
-                        <input type="text" id="donorAddress" name="donorAddress">
-                    </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
                 </div>
-
-                <div id="companyFields" class="hidden">
-                    <div class="form-group">
-                        <label for="companyName">Company Name:</label>
-                        <input type="text" id="companyName" name="companyName">
-                    </div>
-                    <div class="form-group">
-                        <label for="companyEmail">Company Email:</label>
-                        <input type="email" id="companyEmail" name="companyEmail">
-                    </div>
-                    <div class="form-group">
-                        <label for="companyPhone">Company Phone Number:</label>
-                        <input type="tel" id="companyPhone" name="companyPhone">
-                    </div>
-                    <div class="form-group">
-                        <label for="companyAddress">Company Address:</label>
-                        <input type="text" id="companyAddress" name="companyAddress">
-                    </div>
-                    <div class="form-group">
-                        <label for="companyWebsite">Website:</label>
-                        <input type="url" id="companyWebsite" name="companyWebsite">
-                    </div>
-                    <div class="form-group">
-                        <label for="companyDocuments">Upload Documents:</label>
-                        <input type="file" id="companyDocuments" name="companyDocuments" multiple>
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <button type="submit">Register</button>
                 </div>
